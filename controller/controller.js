@@ -11,7 +11,6 @@ const createCat = (req,res) => {
     });
 }
 
-
 const getAllCats = (req,res) => {
     model.getAllCats((err, result) => {
         if (err) {
@@ -22,4 +21,15 @@ const getAllCats = (req,res) => {
     });
 }
 
-module.exports = {createCat, getAllCats}
+const deleteCat = (req, res) => {
+    let cat = req.body;
+    model.remove(cat, (err, result) => {
+        if (err) {
+            res.json({statusCode:400, message: err});
+        } else {
+            res.json({statusCode: 200, data: result, message: 'Cat Successfully Deleted'});
+        }
+    });
+};
+
+module.exports = {createCat, getAllCats, deleteCat}
