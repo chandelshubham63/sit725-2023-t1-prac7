@@ -1,1 +1,1 @@
-prac 6 (MVC)
+prac 7 (MVC)
